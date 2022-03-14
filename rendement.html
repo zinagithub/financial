@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir='rtl'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>منحة المردودية</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-center">
+                حساب منحة المردوية
+            </h1>
+            <p class="description text-center">
+                حساب منحة المردودية للموظفين المنتمين للوظيف العمومي
+            </p>
+        </header>
+        <div id="simpleModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="closeBtn">&times;</span>
+                    <h2>نتيجة حساب منحة المردودية</h2>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="brut" id="brut-label"> الخام الشهري</label>
+                        <input type="number" step="0.01" name="brut" id="brut" class="form-control" placeholder="0.00"
+                            value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="montant-prime" id="montant-prime-label"> مبلغ العلاوة</label>
+                        <input type="number" step="0.01" name="montant-prime" id="montant-prime" class="form-control"
+                            placeholder="0.00" value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="rss" id="rss-label"> الضمان الاجتماعي</label>
+                        <input type="number" step="0.01" name="rss" id="rss" class="form-control" placeholder="0.00"
+                            value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="irg" id="irg-label"> الضريبة على الدخل</label>
+                        <input type="number" step="0.01" name="irg" id="irg" class="form-control" placeholder="0.00"
+                            value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="net" id="net-label"> صافي الدخل</label>
+                        <input type="number" step="0.01" name="net" id="net" class="form-control" placeholder=""
+                            value="0.00" disabled />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <form action="" id="rendement-form">
+            <div class="form-group">
+                <label for="categorie" id="categorie-label">
+                    الصنف
+                </label>
+                <input type="number" name="categorie" id="categorie" class="form-control" min="1" max="17"
+                    placeholder="أدخل الصنف من 1-17" required>
+            </div>
+            <div class="form-group">
+                <label for="echellon" id="echellon-label">
+                    الدرجة
+                </label>
+                <input type="number" name="echellon" id="echellon" class="form-control" min="0" max="12"
+                    placeholder="أدخل الدرجة من 0-12" required>
+            </div>
+            <div class="form-group">
+                <label for="abcsence" id="abcence-label">
+                    الغياب
+                </label>
+                <input type="number" name="absence" id="absence" class="form-control" min="0" max="90"
+                    placeholder="أدخل الغيابات من 0-90 يوم" required>
+            </div>
+            <div class="form-group">
+                <p>إختر النسبة</p>
+                <label>
+                    <input name="pourcentage" value="30" type="radio" class="input-radio" id="type1" checked />
+                    30%
+                </label>
+                <label>
+                    <input name="pourcentage" value="40" type="radio" id="type2" class="input-radio" />
+                    40%
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="note" id="note-label">
+                    النقطة
+                </label>
+                <input type="number" name="note" id="note" class="form-control" min="0" max="40"
+                    placeholder="أدخل النقطة" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="modalBtn" class="submit-button">
+                    حساب
+                </button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+    <footer class="container">
+        <p class="description text-center">يمكنكم الإتصال على البريد الإلكتروني
+        </p>
+        <p class="description text-center">guermila@yahoo.fr</p>
+
+    </footer>
+    <script src="rendement.js"></script>
+</body>
+
+</html>
