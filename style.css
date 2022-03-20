@@ -114,6 +114,10 @@ a:hover {
 .text-center {
   text-align: center;
 }
+/* choose box */
+.choose {
+  display: flex;
+}
 /* Styling the Modal */
 .modal {
   display: none;
@@ -277,6 +281,19 @@ form {
   padding: 0.625rem;
   resize: vertical;
 }
+.choose-button {
+  display: block;
+  width: 48%;
+  padding: 0.75rem;
+  background: var(--color-darkblue);
+  margin: 1%;
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.choose-button:hover {
+  background: #80bdff;
+}
 
 .submit-button {
   display: block;
@@ -286,4 +303,7 @@ form {
   color: inherit;
   border-radius: 2px;
   cursor: pointer;
+}
+.submit-button:hover {
+  background: var(--color-darkblue-alpha);
 }

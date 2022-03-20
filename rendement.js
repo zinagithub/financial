@@ -67,7 +67,7 @@ var dataMontant =   localStorage.getItem("dataMontant");
 var dataRss =       localStorage.getItem("dataRss");
 var dataIrg =       localStorage.getItem("dataIrg");
 var dataNet =       localStorage.getItem("dataNet");
-var dataPourcentage=localStorage.getItem("dataPourcentage");
+//var dataPourcentage=localStorage.getItem("dataPourcentage");
 var dataNote =      localStorage.getItem("dataNote");
 if (dataCategorie !==null &&
 dataEchellon !==null &&
@@ -77,7 +77,7 @@ dataMontant !==null &&
 dataRss!==null &&
 dataIrg!==null &&
 dataNet!==null &&
-dataPourcentage!==null &&
+/*dataPourcentage!==null &&*/
 dataNote!==null ){
     dataCategorie = parseInt(dataCategorie);
     categorie.value = dataCategorie;
@@ -97,13 +97,13 @@ dataNote!==null ){
     net.value = financial(dataNet);
     dataNote = parseFloat(dataNote);
     note.value = dataNote;
-    if (dataPourcentage == "30"){
+    /*if (dataPourcentage == "30"){
         document.getElementById("type1").checked = true
     }
     else{
         document.getElementById("type2").checked = true
     }
-    dataPourcentage = parseInt(dataPourcentage);
+    dataPourcentage = parseInt(dataPourcentage);*/
     dataNote = parseFloat(dataNote);
 
 localStorage.removeItem("dataCategorie");
@@ -114,7 +114,7 @@ localStorage.removeItem("dataMontant");
 localStorage.removeItem("dataRss");
 localStorage.removeItem("dataIrg");
 localStorage.removeItem("dataNet");
-localStorage.removeItem("dataPourcentage");
+//localStorage.removeItem("dataPourcentage");
 localStorage.removeItem("dataNote");
 }
     e.preventDefault()
@@ -137,6 +137,34 @@ const ech = [
 [120,131,144,158,173,189,209,225,251,272,299,322,347,373,400,428,457]
 ];
 
+/* permanent and contract button */
+const permanent = document.getElementById("permanent");
+const contrat= document.getElementById("contrat");
+const echellonLabel = document.getElementById("echellon-label");
+var choice = 1;
+/* change the background of the permanent button */
+//permanent.style.background = "#37af65"
+
+permanent.addEventListener("click",choosePermanent);
+contrat.addEventListener("click",chooseContrat);
+
+function choosePermanent(){
+    //permanent.style.backgroundColor = "#37af65!important";
+    //contrat.style.backgroundColor = "1b1b32!important";
+    echellonLabel.innerHTML = "الدرجة";
+    echellon.placeholder = "أدخل الدرجة من 0-12" ;
+    echellon.max = "12";
+    choice = 1;
+}
+function chooseContrat(){
+    //contrat.style.backgroundColor = "#37af65!important";
+    //permanent.style.backgroundColor = "#1b1b32!important";
+    echellonLabel.innerHTML = "عدد السنوات";
+    echellon.placeholder = "أدخل عدد السنوات";
+    echellon.max = "40";
+    choice = 2;
+
+}
 const categorie = document.getElementById("categorie");
 const echellon = document.getElementById("echellon");
 const absence = document.getElementById("absence");
@@ -146,23 +174,32 @@ const rss = document.getElementById("rss");
 const irg = document.getElementById("irg");
 const net = document.getElementById("net");
 const note = document.getElementById("note");
-var getSelectedValue = document.querySelector( 'input[name="pourcentage"]:checked');
+//var getSelectedValue = document.querySelector( 'input[name="pourcentage"]:checked');
  
 
 
 function calculRendement(){
     var info = 0;
-    if (echellon.value > 0){
+    if (echellon.value > 0 && choice == 1){
       info = ech[parseInt(echellon.value)-1][categorie.value - 1];
     }
-    getSelectedValue = document.querySelector( 'input[name="pourcentage"]:checked');
-    
+    if (echellon.value > 0 && choice == 2){
+        
+      info = (echellon.value)*1.40/100;
+    }
+    //getSelectedValue = document.querySelector( 'input[name="pourcentage"]:checked');
     localStorage.setItem("dataCategorie",categorie.value);
     localStorage.setItem("dataEchellon",echellon.value);
     localStorage.setItem("dataAbsence",absence.value);
-    localStorage.setItem("dataPourcentage",getSelectedValue.value);
+    //localStorage.setItem("dataPourcentage",getSelectedValue.value);
     localStorage.setItem("dataNote",note.value);
+    if (choice == 1){
+       
     var G = (minIndice[categorie.value - 1 ]+info)*45;
+    
+    }else {
+    var G = (minIndice[categorie.value - 1 ])*45 + (minIndice[categorie.value - 1 ])*45*info;
+    }
     localStorage.setItem("dataBrut",G);
     var L = (G/30)*(note.value/100)*(90-absence.value);
     localStorage.setItem("dataMontant",L);
@@ -172,5 +209,4 @@ function calculRendement(){
     localStorage.setItem("dataIrg", N);
     var O = L - M - N;
     localStorage.setItem("dataNet", O);
-
 }
