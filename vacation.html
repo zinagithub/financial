@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir='rtl'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>الساعات الإضافية </title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-center">
+              الساعات الإضافية
+            </h1>
+            <p class="description text-center">
+                حساب مبلغ الساعات الإضافية للموظف 
+            </p>
+        </header>
+        
+        <div id="simpleModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span id="closeBtn">&times;</span>
+                    <h2>نتيجة حساب مبلغ الساعات الإضافية </h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="montant-vacation" id="montant-vacation-label"> مبلغ الساعات الإضافية </label>
+                        <input type="number" step="0.01" name="montant-vacation" id="montant-vacation" class="form-control"
+                            placeholder="0.00" value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="rss" id="rss-label"> الضمان الاجتماعي</label>
+                        <input type="number" step="0.01" name="rss" id="rss" class="form-control" placeholder="0.00"
+                            value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="irg" id="irg-label"> الضريبة على الدخل</label>
+                        <input type="number" step="0.01" name="irg" id="irg" class="form-control" placeholder="0.00"
+                            value="0.00" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label for="net" id="net-label"> صافي الدخل</label>
+                        <input type="number" step="0.01" name="net" id="net" class="form-control" placeholder=""
+                            value="0.00" disabled />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <form action="" id="vacation-form">
+            <div class="form-group">
+                <label for="nbHeures" id="heure-label">
+                    عدد الساعات الإضافية
+                </label>
+                <input type="number" name="nbHeures" id="nbHeures" class="form-control" min="" max=""
+                    placeholder="أدخل عدد الساعات الإضافية" required>
+            </div>
+            <div class="form-group">
+                <p> قيمة الساعة</p>
+                <select id="dropdown" name="role" class="form-control" required>
+                    <option disabled selected value>اختر قيمة الساعة</option>
+                    <option value="480">480 دج</option>
+                    <option value="420">420 دج</option>
+                    <option value="390">390 دج</option>
+                    <option value="360">360 دج</option>
+                    <option value="300">300 دج</option>
+                    <option value="225">225 دج</option>
+                    <option value="180">180 دج</option>
+                    <option value="135">135 دج</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="modalBtn" class="submit-button">
+                    حساب
+                </button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+    <footer class="container">
+        <p class="description text-center">يمكنكم الإتصال على البريد الإلكتروني
+        </p>
+        <p class="description text-center">guermila@yahoo.fr</p>
+
+    </footer>
+    <script src="rendement.js"></script>
+</body>
+
+</html>

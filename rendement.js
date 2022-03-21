@@ -134,14 +134,13 @@ const contrat= document.getElementById("contrat");
 const echellonLabel = document.getElementById("echellon-label");
 var choice = 1;
 /* change the background of the permanent button */
-//permanent.style.background = "#37af65"
+
 permanent.classList.add("bg-green");
 permanent.addEventListener("click",choosePermanent);
 contrat.addEventListener("click",chooseContrat);
 
 function choosePermanent(){
-    //permanent.style.backgroundColor = "#37af65!important";
-    //contrat.style.backgroundColor = "1b1b32!important";
+    
     permanent.classList.add("bg-green");
     permanent.classList.remove("bg-dark-blue");
     contrat.classList.remove("bg-green");
@@ -152,8 +151,7 @@ function choosePermanent(){
     choice = 1;
 }
 function chooseContrat(){
-    //contrat.style.backgroundColor = "#37af65!important";
-    //permanent.style.backgroundColor = "#1b1b32!important";
+    
     permanent.classList.remove("bg-green");
     permanent.classList.add("bg-dark-blue");
     contrat.classList.add("bg-green");
