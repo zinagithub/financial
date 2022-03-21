@@ -67,7 +67,7 @@ var dataMontant =   localStorage.getItem("dataMontant");
 var dataRss =       localStorage.getItem("dataRss");
 var dataIrg =       localStorage.getItem("dataIrg");
 var dataNet =       localStorage.getItem("dataNet");
-//var dataPourcentage=localStorage.getItem("dataPourcentage");
+
 var dataNote =      localStorage.getItem("dataNote");
 if (dataCategorie !==null &&
 dataEchellon !==null &&
@@ -77,7 +77,6 @@ dataMontant !==null &&
 dataRss!==null &&
 dataIrg!==null &&
 dataNet!==null &&
-/*dataPourcentage!==null &&*/
 dataNote!==null ){
     dataCategorie = parseInt(dataCategorie);
     categorie.value = dataCategorie;
@@ -97,13 +96,6 @@ dataNote!==null ){
     net.value = financial(dataNet);
     dataNote = parseFloat(dataNote);
     note.value = dataNote;
-    /*if (dataPourcentage == "30"){
-        document.getElementById("type1").checked = true
-    }
-    else{
-        document.getElementById("type2").checked = true
-    }
-    dataPourcentage = parseInt(dataPourcentage);*/
     dataNote = parseFloat(dataNote);
 
 localStorage.removeItem("dataCategorie");
@@ -114,7 +106,6 @@ localStorage.removeItem("dataMontant");
 localStorage.removeItem("dataRss");
 localStorage.removeItem("dataIrg");
 localStorage.removeItem("dataNet");
-//localStorage.removeItem("dataPourcentage");
 localStorage.removeItem("dataNote");
 }
     e.preventDefault()
@@ -144,13 +135,17 @@ const echellonLabel = document.getElementById("echellon-label");
 var choice = 1;
 /* change the background of the permanent button */
 //permanent.style.background = "#37af65"
-
+permanent.classList.add("bg-green");
 permanent.addEventListener("click",choosePermanent);
 contrat.addEventListener("click",chooseContrat);
 
 function choosePermanent(){
     //permanent.style.backgroundColor = "#37af65!important";
     //contrat.style.backgroundColor = "1b1b32!important";
+    permanent.classList.add("bg-green");
+    permanent.classList.remove("bg-dark-blue");
+    contrat.classList.remove("bg-green");
+    contrat.classList.add("bg-dark-blue");
     echellonLabel.innerHTML = "الدرجة";
     echellon.placeholder = "أدخل الدرجة من 0-12" ;
     echellon.max = "12";
@@ -159,6 +154,9 @@ function choosePermanent(){
 function chooseContrat(){
     //contrat.style.backgroundColor = "#37af65!important";
     //permanent.style.backgroundColor = "#1b1b32!important";
+    permanent.classList.remove("bg-green");
+    permanent.classList.add("bg-dark-blue");
+    contrat.classList.add("bg-green");
     echellonLabel.innerHTML = "عدد السنوات";
     echellon.placeholder = "أدخل عدد السنوات";
     echellon.max = "40";
