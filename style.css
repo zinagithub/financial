@@ -53,7 +53,14 @@ p {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+li {
+  list-style: none;
+}
 
+a {
+  color: #000;
+  text-decoration: none;
+}
 label {
   display: flex;
   align-items: center;
@@ -109,7 +116,7 @@ a,
   color: #e4e4e4;
 }
 a:hover {
-  color: cadetblue;
+  color: var(--color-darkblue);
 }
 .text-center {
   text-align: center;
@@ -118,6 +125,48 @@ a:hover {
 .choose {
   display: flex;
 }
+/* styling the navbar */
+nav {
+  font-weight: 400;
+  /* background-color: #37af65;*/
+}
+nav li {
+  margin: 20px;
+}
+nav li {
+  background: var(--color-darkblue-alpha);
+  padding: 1rem 0.625rem;
+  border-radius: 0.25rem;
+  margin-bottom: 15px;
+}
+@media (max-width: 650px) {
+  nav {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
+  }
+  nav li {
+    padding-bottom: 5px;
+  }
+}
+
+nav > ul {
+  width: 35vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (max-width: 650px) {
+  nav > ul {
+    flex-direction: column;
+  }
+}
+
 /* Styling the Modal */
 .modal {
   display: none;
